@@ -1,0 +1,29 @@
+name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+  branches:
+    include:
+      - develop
+      - main
+      - refs/tags/v*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: var1
+    value: 2
+stages:
+  - stage: first
+    displayName: First
+    jobs:
+      - job: first
+        displayName: 'First'
+        steps:
+            - task: bash@3
+              name: run_script
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo "Hello GitHub"
+              displayName: 'Hello'
