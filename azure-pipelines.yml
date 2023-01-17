@@ -29,8 +29,8 @@ stages:
         displayName: 'First'
         steps:
             - checkout: self
-            #- checkout: destination
-            - checkout: git://TEST_CONSENTINO/destination@main
+            - checkout: destination
+            #- checkout: git://TEST_CONSENTINO/destination@main
             - task: bash@3
               name: run_script
               inputs:
@@ -44,7 +44,8 @@ stages:
                   echo "Entering into 'destination' and checkout develop"
                   cd ../destination && git fetch 
                   echo "Checkout develop"
-                  git checkout develop
+                  
+                  git switch -c feature/release-1.0
                   echo "Copying files form test-repo to destination
                   cp -R ../test-repo .
                   echo "get Status"
