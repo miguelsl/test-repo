@@ -3,8 +3,8 @@ name: $(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 trigger:
   branches:
     include:
-      - develop
-      - main
+      - publish
+      - master
       - refs/tags/v*
 
 pool:
