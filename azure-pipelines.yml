@@ -13,6 +13,14 @@ pool:
 variables:
   - name: var1
     value: 2
+    
+resources:
+  repositories:
+    - repository: destination
+      type: git
+      name: TEST_CONSENTINO/destination
+      #ref: master
+      ref: develop
 stages:
   - stage: first
     displayName: First
@@ -20,10 +28,14 @@ stages:
       - job: first
         displayName: 'First'
         steps:
+            - checkout: self
+            - checkout: destination
             - task: bash@3
               name: run_script
               inputs:
                 targetType: 'inline'
                 script: |
+                  git checkout publish
+                  ls -lR
                   echo "Hello GitHub"
               displayName: 'Hello'
