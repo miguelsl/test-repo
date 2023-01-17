@@ -51,11 +51,11 @@ stages:
                   pwd
                   ls -l ../test-repo
                   ls -l
-                  cp -R ../test-repo .
+                  cp -R ../test-repo/* .
                   ls -l
                   echo "get status"
                   git status
                   echo "Adding files to repository"
-                  git add . && git commit -m "Azure DevOps" && git push
+                  git add . && git commit -m "Azure DevOps" && git push --set-upstream origin feature/release-1.0
                   echo "Finishing"
               displayName: 'Hello'
