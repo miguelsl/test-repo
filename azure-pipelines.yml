@@ -30,7 +30,7 @@ stages:
         steps:
             - checkout: self
             #- checkout: destination
-            - checkout: git://TEST_COSENTINO/destination@main
+            - checkout: git://TEST_CONSENTINO/destination@main
             - task: bash@3
               name: run_script
               inputs:
