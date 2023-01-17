@@ -30,7 +30,7 @@ stages:
         steps:
             - checkout: self
             - checkout: destination
-            #- checkout: git://TEST_CONSENTINO/destination@main
+              persistCredentials: true
             - task: bash@3
               name: run_script
               inputs:
