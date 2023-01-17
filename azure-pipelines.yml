@@ -40,9 +40,13 @@ stages:
                   
                   git config --global user.email "azure_devops@example.com"
                   git config --global user.name "Azure DevOps Pipeline"
-                  cd ../destination 
-                  git fetch && git checkout develop
-                  cp -R ../destination .
+                  echo "Entering into 'destination' and checkout develop"
+                  cd ../destination && git fetch && git checkout develop
+                  echo "Copying files form test-repo to destination
+                  cp -R ../test-repo .
+                  echo "get Status"
+                  git status
+                  echo "Adding files to repository
                   git add . && git commit -m "Azure DevOps" && git push
-                  echo "Hello GitHub"
+                  echo "Finishing"
               displayName: 'Hello'
