@@ -36,6 +36,7 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
+                  pwd
                   ls -l
                   cd test-repo && git fetch && git checkout publish
                   
@@ -47,6 +48,7 @@ stages:
                   
                   git switch -c feature/release-1.0
                   echo "Copying files form test-repo to destination
+                  pwd
                   ls -l ../test-repo
                   ls -l
                   cp -R ../test-repo .
