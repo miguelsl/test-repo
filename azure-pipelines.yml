@@ -29,7 +29,8 @@ stages:
         displayName: 'First'
         steps:
             - checkout: self
-            - checkout: destination
+            #- checkout: destination
+            - checkout: git://TEST_COSENTINO/destination@main
             - task: bash@3
               name: run_script
               inputs:
@@ -41,7 +42,9 @@ stages:
                   git config --global user.email "azure_devops@example.com"
                   git config --global user.name "Azure DevOps Pipeline"
                   echo "Entering into 'destination' and checkout develop"
-                  cd ../destination && git fetch && git checkout develop
+                  cd ../destination && git fetch 
+                  echo "Checkout develop"
+                  git checkout develop
                   echo "Copying files form test-repo to destination
                   cp -R ../test-repo .
                   echo "get Status"
