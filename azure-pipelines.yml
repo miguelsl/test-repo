@@ -37,10 +37,12 @@ stages:
                 script: |
                   ls -l
                   cd test-repo && git fetch && git checkout publish
-                  cp -R * ../destination
+                  
                   git config --global user.email "azure_devops@example.com"
                   git config --global user.name "Azure DevOps Pipeline"
-
-                  cd ../destination && git add . && git commit -m "Azure DevOps" && git push
+                  cd ../destination 
+                  git fetch && git checkout develop
+                  cp -R ../destination .
+                  git add . && git commit -m "Azure DevOps" && git push
                   echo "Hello GitHub"
               displayName: 'Hello'
