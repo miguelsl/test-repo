@@ -35,7 +35,7 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
-                  cd test-repo && git checkout publish
+                  cd test-repo && git fetch && git checkout publish
                   ls -lR
                   echo "Hello GitHub"
               displayName: 'Hello'
