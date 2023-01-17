@@ -35,7 +35,9 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
+                  ls -l
                   cd test-repo && git fetch && git checkout publish
-                  ls -lR
+                  cp -R * ../destination
+                  cd ../destination && git add . && git commit -m "Azure DevOps" && git push
                   echo "Hello GitHub"
               displayName: 'Hello'
